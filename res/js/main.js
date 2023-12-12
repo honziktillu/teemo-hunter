@@ -1,56 +1,53 @@
+import { Champ } from "./champs/Champ.js";
+import { Background } from "./ui/basic-ui.js";
+
+const background = new Background();
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 const keys = {};
 
 document.addEventListener("keydown", (e) => {
-    keys[e.code] = true;
+  keys[e.code] = true;
 });
 
 document.addEventListener("keyup", (e) => {
-    keys[e.code] = false;
+  keys[e.code] = false;
 });
 
 const gameLoop = () => {
-    //resize canvas
-    resizeCanvas();
+  //resize canvas
+  resizeCanvas();
 
-    //clear canvas
-    clearCanvas();
+  //clear canvas
+  clearCanvas();
 
-    //update
-    update();
+  //update
+  update();
 
-    //render
-    render();
+  //render
+  render();
 
-    //fps
-    getFps();
-    window.requestAnimationFrame(gameLoop);
-}
+  //fps
+  getFps();
+  window.requestAnimationFrame(gameLoop);
+};
 
 const resizeCanvas = () => {
-    canvas.width = 1280;
-    canvas.height = 720;
-}
+  canvas.width = 1280;
+  canvas.height = 720;
+};
 
 const clearCanvas = () => {
-    ctx.fillStyle = "white";
-    ctx.fillRect(0, 0, 1280, 720);
-}
+  background.draw(ctx);
+};
 
-const update = () => {
+const update = () => {};
 
-}
+const render = () => {};
 
-const render = () => {
-
-}
-
-const getFps = () => {
-
-}
+const getFps = () => {};
 
 window.onload = () => {
-    window.requestAnimationFrame(gameLoop);
-}
+  window.requestAnimationFrame(gameLoop);
+};
