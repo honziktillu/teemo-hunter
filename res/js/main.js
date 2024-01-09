@@ -1,9 +1,8 @@
 import { Champ } from "./champs/Champ.js";
 import { Background } from "./ui/basic-ui.js";
 
-
 const background = new Background();
-const jinx = new Champ("Jinx", 12, 25, 10, 5);
+const jinx = new Champ("Jinx", 12, 25, 10, 3);
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
@@ -44,9 +43,13 @@ const clearCanvas = () => {
   background.draw(ctx);
 };
 
-const update = () => {};
+const update = () => {
+  jinx.update();
+};
 
-const render = () => {};
+const render = () => {
+  jinx.draw(ctx);
+};
 
 const getFps = () => {};
 
