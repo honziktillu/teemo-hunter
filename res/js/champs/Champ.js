@@ -1,4 +1,5 @@
 export class Champ {
+
   constructor(name, hp, dmg, mana) {
     this.name = name;
     this.hp = hp;

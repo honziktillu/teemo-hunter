@@ -1,7 +1,9 @@
 import { Champ } from "./champs/Champ.js";
 import { Background } from "./ui/basic-ui.js";
 
+
 const background = new Background();
+const jinx = new Champ("Jinx", 12, 25, 10, 5);
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
