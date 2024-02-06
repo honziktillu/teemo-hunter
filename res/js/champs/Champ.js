@@ -66,7 +66,6 @@ export class Champ {
 
   setType(type) {
     const paths = [
-      "./res/img/champs/teemo.png",
       "./res/img/champs/caitlyn.png",
       "./res/img/champs/ezreal.png",
       "./res/img/champs/jinx.png",

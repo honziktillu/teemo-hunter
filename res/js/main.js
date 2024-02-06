@@ -1,17 +1,21 @@
 import { Champ } from "./champs/Champ.js";
 import { Background } from "./ui/basic-ui.js";
+import { Player } from "./champs/Player.js";
 
 const background = new Background();
 const jinx = new Champ("Jinx", 12, 25, 10, 3);
+const player = new Player();
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 
 const keys = {};
+// KeyW: true
 
 document.addEventListener("keydown", (e) => {
   keys[e.code] = true;
 });
 
+//KeyW: false
 document.addEventListener("keyup", (e) => {
   keys[e.code] = false;
 });
@@ -45,10 +49,12 @@ const clearCanvas = () => {
 
 const update = () => {
   jinx.update();
+  player.update(keys, ctx);
 };
 
 const render = () => {
   jinx.draw(ctx);
+  player.draw(ctx);
 };
 
 const getFps = () => {};
