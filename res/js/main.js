@@ -3,7 +3,7 @@ import { Background } from "./ui/basic-ui.js";
 import { Player } from "./champs/Player.js";
 
 const background = new Background();
-const jinx = new Champ("Jinx", 12, 25, 10, 3);
+const jinx = new Champ("Jinx", 100, 25, 10, 3);
 const player = new Player();
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
@@ -49,12 +49,14 @@ const clearCanvas = () => {
 
 const update = () => {
   jinx.update();
-  player.update(keys, ctx);
+  player.update(keys);
+  Champ.detectHit(player.dart, jinx);
 };
 
 const render = () => {
   jinx.draw(ctx);
   player.draw(ctx);
+  player.dart.draw(ctx);
 };
 
 const getFps = () => {};

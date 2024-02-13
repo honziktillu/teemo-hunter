@@ -58,6 +58,23 @@ export class Champ {
       this.size.width,
       this.size.height
     );
+    ctx.save(); //ulozi soucasny stav stetce
+    ctx.fillStyle = "red";
+    ctx.fillRect(
+      (this.position.x) - 15,
+      this.position.y - 20,
+      this.hp,
+      20
+    );
+    ctx.lineWidth = 4;
+    ctx.strokeStyle = "black";
+    ctx.strokeRect(
+      (this.position.x) - 15,
+      this.position.y - 20,
+      100,
+      20
+    );
+    ctx.restore();
   }
 
   attack() {
@@ -72,5 +89,21 @@ export class Champ {
       "./res/img/champs/vayne.png",
     ];
     this.path = paths[type];
+  }
+
+  static detectHit(dart, champ) {
+    if (
+      dart.x < champ.position.x + champ.size.width &&
+      dart.x + dart.width > champ.position.x &&
+      dart.y < champ.position.y + champ.size.height &&
+      dart.y + dart.height > champ.position.y
+    ) {
+      dart.hit = true;
+      champ.hp -= dart.dmg;
+      dart.x = -50;
+      if (champ.hp <= 0) {
+        champ.position.x = 2000;
+      }
+    }
   }
 }
